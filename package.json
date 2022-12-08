@@ -17,6 +17,7 @@
     "email": "46926470+ayabdi@users.noreply.github.com"
   },
   "license": "MIT",
+  
   "devDependencies": {
     "@electron-forge/cli": "^6.0.4",
     "@electron-forge/maker-deb": "^6.0.4",
