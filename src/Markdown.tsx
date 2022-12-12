@@ -10,11 +10,10 @@ import { io } from "socket.io-client"
 import { textToKey } from "./utils/keys"
 const socket = io("localhost:5001/")
 
-export const Markdown = (props: any) => {
+export const Markdown = () => {
   const [transcribedData, setTranscribedData] = useState("")
   const [isRecording, setIsRecording] = useState(false)
   const [isTranscribing, setIsTranscribing] = useState(false)
-  const [transcribeTimeout, setTranscribeTimout] = useState(5)
   const [stopTranscriptionSession, setStopTranscriptionSession] = useState(false)
   const [socketInstance, setSocketInstance] = useState<any>("")
   const intervalRef = useRef(null)
