@@ -6,6 +6,7 @@ pyaudio
 SpeechRecognition
 pydub
 git+https://github.com/openai/whisper.git
+git+https://github.com/Uberi/speech_recognition.git
 --extra-index-url https://download.pytorch.org/whl/cu113
 torch
 flask
