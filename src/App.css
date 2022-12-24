@@ -1,5 +1,6 @@
 html {
     height: 100%;
+    width: 100%;
 }
 
 body {
@@ -8,8 +9,13 @@ body {
 
 #root {
     height: 100vh;
+    width: 100vw;
     background-color: #f6f6ef;
     display: flex;
     flex-direction: row;
 }
 
+.app {
+    height: 100%;
+    width: 100vw;
+}

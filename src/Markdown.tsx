@@ -3,11 +3,10 @@ import MDEditor from "@uiw/react-md-editor"
 import React, { useState, useEffect, useRef } from "react"
 import { Button } from "react-bootstrap"
 import "./App.css"
-import { ReactMic } from "react-mic"
-import axios from "axios"
 import { io } from "socket.io-client"
 
 import { textToKey } from "./utils/keys"
+
 const socket = io("localhost:5001/")
 
 export const Markdown = () => {
@@ -15,7 +14,6 @@ export const Markdown = () => {
   const [isRecording, setIsRecording] = useState(false)
   const [isTranscribing, setIsTranscribing] = useState(false)
   const [stopTranscriptionSession, setStopTranscriptionSession] = useState(false)
-  const [socketInstance, setSocketInstance] = useState<any>("")
   const intervalRef = useRef(null)
 
   useEffect(() => {
@@ -26,7 +24,7 @@ export const Markdown = () => {
     if (isRecording) {
       socket.on("data", res => {
         const { data } = res
-        console.log(data)
+
         setTranscribedData(oldString => oldString + textToKey(data))
         socket.emit("record", "start")
       })
@@ -39,9 +37,7 @@ export const Markdown = () => {
   }, [isRecording])
 
   function startRecording() {
-    setSocketInstance(socket)
     socket.emit("record", "start")
-
     setIsRecording(true)
   }
 
@@ -52,10 +48,10 @@ export const Markdown = () => {
   }
 
   return (
-    <div className="">
-      <div>
+    <div className="" style={{ height: '100vh', width: '100%'}}>
+      <div >
         {!isRecording && !isTranscribing && (
-          <Button onClick={startRecording} variant="primary">
+          <Button onClick={startRecording} variant="primary" style={{zIndex: 999999, position: 'fixed'}}>
             Start transcribing
           </Button>
         )}
@@ -66,7 +62,7 @@ export const Markdown = () => {
         )}
       </div>
 
-      <MDEditor height={500} value={transcribedData} onChange={setTranscribedData} />
+      <MDEditor height={'100%'} style={{width: '100%'}} value={transcribedData} onChange={setTranscribedData} />
     </div>
   )
 }
