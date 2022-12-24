@@ -45,6 +45,7 @@
     "@uiw/react-md-editor": "^3.19.8",
     "axios": "^1.2.1",
     "electron-squirrel-startup": "^1.0.0",
+    "python-shell": "^3.0.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
     "react-dom": "^18.2.0",

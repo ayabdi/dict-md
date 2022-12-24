@@ -88,8 +88,8 @@ typings/
 # Electron-Forge
 out/
 
-/backend/venv/
-/backend/__pycache__/
+/local_server/venv/
+/local_server/__pycache__/
 /interface/node_modules/
 /.vscode
 

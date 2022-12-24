@@ -5,11 +5,13 @@ from flask import request
 from flask_cors import CORS
 from flask_socketio import SocketIO,emit
 import speech_recognition as sr
+from engineio.async_drivers import eventlet
+import tqdm
+# import whisper
 
 app = flask.Flask(__name__)
 CORS(app)
-socketio = SocketIO(app,cors_allowed_origins="*")
-
+socketio = SocketIO(app,cors_allowed_origins="*", async_mode="eventlet",logger=True, engineio_logger=True)
 
 @socketio.on("connect")
 def connected():
